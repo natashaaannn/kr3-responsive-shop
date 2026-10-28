@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Полная форма оформления заказа в магазине SpookyShop.">
+  <title>Оформление заказа — SpookyShop</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">SpookyShop</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="order.html">Заказ</a></li>
+          <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current">Оформление заказа</span>
+    </nav>
+    
+    <section class="section section--card section--centered-form">
+      <h1 class="section__title section__title--centered">Оформление заказа</h1>
+      
+      <form class="order-form" id="order-form" action="#" method="get" novalidate>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-select-product">Выберите товар</label>
+          <select class="order-form__select" id="order-select-product" name="product" required>
+            <option value="">Нажмите, чтобы выбрать товар</option>
+            <option value="1">Хоррор-маска Ghostface</option>
+            <option value="2">Костюм скелета</option>
+            <option value="3">Набор шариков Хеллоуин</option>
+            <option value="4">Костюм привидения</option>
+            <option value="5">Ведьмина метла</option>
+            <option value="6">Костюм вампира</option>
+            <option value="7">Скатерть тематическая</option>
+            <option value="8">Шляпа ведьмы</option>
+            <option value="9">Сумочки для конфет (3 шт)</option>
+            <option value="10">Тыква Джек LED</option>
+            <option value="11">Игрушка мягкая паук</option>
+            <option value="12">Тюбик искусственной крови</option>
+            <option value="13">Набор леденцов Spooky Candy</option>
+            <option value="14">Жуткие свечи-призраки</option>
+            <option value="15">Клыки вампира с термоклеем</option>
+            <option value="16">Гирлянда Летучие Мыши</option>
+            <option value="17">Букет черных готических роз</option>
+            <option value="18">Настольная игра Хоррор</option>
+          </select>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="full-order-name">Ваше имя</label>
+          <input class="order-form__input" id="full-order-name" type="text" name="name" placeholder="Введите имя и фамилию" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="full-order-email">E-mail для связи</label>
+          <input class="order-form__input" id="full-order-email" type="email" name="email" placeholder="example@mail.ru" autocomplete="email" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="full-order-phone">Контактный телефон</label>
+          <input class="order-form__input" id="full-order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
+          <small class="order-form__help">Формат: +7 (900) 000-00-00</small>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="full-order-date">Желаемая дата доставки</label>
+          <input class="order-form__input" id="full-order-date" name="date" type="date" required>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="full-order-comment">Комментарий к заказу</label>
+          <textarea class="order-form__textarea" id="full-order-comment" name="comment" rows="4" placeholder="Укажите адрес доставки или примечания к заказу..."></textarea>
+        </div>
+
+        <div class="order-form__field-checkbox">
+          <input class="order-form__checkbox" id="full-order-agreement" name="agreement" type="checkbox" required>
+          <label class="order-form__label order-form__label--checkbox" for="full-order-agreement">Я согласен на обработку персональных данных</label>
+        </div>
+
+        <button class="button button--primary order-form__button--submit" type="submit">
+          ПОДТВЕРДИТЬ И ЗАКАЗАТЬ 🔮
+        </button>
+      </form>
+
+      <p class="success-message" id="success-message" hidden>
+        Форма успешно отправлена!
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">&copy; 2026 Магазин SpookyShop. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
