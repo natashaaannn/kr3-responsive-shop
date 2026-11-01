@@ -7,7 +7,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Контакты — SpookyShop">
   <meta property="og:description" content="Свяжитесь с нами для заказа декора или костюмов.">
-  <meta property="og:image" content="https://natashaaannn.github.io/images/skeleton.png">
+  <meta property="og:image" content="https://natashaaannn.github.io/kr3-responsive-shop/images/skeleton.png">
   <title>Контакты — SpookyShop</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -22,15 +22,14 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">SpookyShop</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav__toggle" type="button" aria-controls="site-navigation" aria-expanded="false"><span aria-hidden="true">☰</span> <span>Меню</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заказ</a></li>
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
-   href="contacts.html"
-   aria-current="page">Контакты</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="contacts.html" aria-current="page">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -49,7 +48,7 @@
       </p>
       <ul class="section__list--contacts">
         <li class="section__list-item">
-          📞 <strong>Телефон:</strong> +7 (495) 666-13-14 
+          📞 <strong>Телефон:</strong> +7 (495) 666-13-14
           <button class="button button--primary" id="open-callback-dialog" type="button">Перезвоните мне 🔮</button>
         </li>
         <li>✉️ <strong>Электронная почта:</strong> support@spookyshop.ru</li>
@@ -61,11 +60,10 @@
       <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ac8e906100c3353f13039d05bf25da62b9a03183c38d8693435bf102adff0a217&amp;width=540&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
     </div>
 
-    <!-- Карточка 2: Форма обратной связи -->
     <section class="section section--card section--centered-form" id="feedback-section">
       <h2 class="section__title section__title--spaced">🦇 ОБРАТНАЯ СВЯЗЬ</h2>
-      
-      <form class="order-form" action="#" method="get">
+
+      <form class="order-form" action="#" method="get" novalidate>
         <div class="order-form__field">
           <label class="order-form__label" for="feedback-name">Ваше имя</label>
           <input class="order-form__input" id="feedback-name" type="text" name="name" placeholder="Иван Иванов" required>
@@ -80,7 +78,7 @@
           <label class="order-form__label" for="feedback-subject">Цель обращения</label>
           <select class="order-form__select" id="feedback-subject" name="subject">
             <option value="support">Техническая поддержка портала</option>
-            <option value="order">Вопрос по заказу декорa</option>
+            <option value="order">Вопрос по заказу декора</option>
             <option value="cooperation">Сотрудничество и реклама</option>
           </select>
         </div>
@@ -100,8 +98,8 @@
         </button>
       </form>
 
-      <p class="success-message" id="success-message" hidden>
-        Форма успешно отправлена!
+      <p class="success-message" role="status" tabindex="-1" hidden>
+        Данные проверены. Это учебная форма, запрос не отправляется.
       </p>
     </section>
   </main>
@@ -114,28 +112,29 @@
 
   <dialog class="order-dialog order-dialog--white" id="order-dialog" aria-labelledby="order-dialog-title">
     <h2 class="order-dialog__title order-dialog__title--black" id="order-dialog-title">Заказать обратный звонок</h2>
-    
+
     <form class="order-form order-form--modal-gap" id="order-form" action="#" method="get" novalidate>
       <div class="order-form__field">
         <label class="order-form__label order-form__label--black" for="order-name">Имя</label>
         <input class="order-form__input order-form__input--modal-white" id="order-name" name="name" type="text" placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
       </div>
-      
+
       <div class="order-form__field">
         <label class="order-form__label order-form__label--black" for="order-phone">Телефон</label>
         <input class="order-form__input order-form__input--modal-white" id="order-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
       </div>
-      
+
       <div class="order-form__field-checkbox order-form__field-checkbox--modal-layout">
         <input class="order-form__checkbox" id="order-agreement" name="agreement" type="checkbox" required>
         <label class="order-form__label order-form__label--modal-checkbox-black" for="order-agreement">Я согласен на обработку персональных данных</label>
       </div>
-      
+
       <div class="order-form__actions">
         <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
         <button class="button button--primary" type="submit">Перезвоните мне 🔮</button>
       </div>
     </form>
+    <p class="success-message" role="status" tabindex="-1" hidden>Данные проверены. Это учебная форма, запрос не отправляется.</p>
   </dialog>
 
 </body>

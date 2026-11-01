@@ -7,18 +7,20 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Костюм скелета — SpookyShop">
   <meta property="og:description" content="Заказать светящийся костюм скелета с доставкой.">
-  <meta property="og:image" content="https://natashaaannn.github.io/images/skeleton.png">
+  <meta property="og:image" content="https://natashaaannn.github.io/kr3-responsive-shop/images/skeleton.png">
   <title>Костюм скелета — SpookyShop</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">SpookyShop</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav__toggle" type="button" aria-controls="site-navigation" aria-expanded="false"><span aria-hidden="true">☰</span> <span>Меню</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
@@ -30,26 +32,28 @@
     </div>
   </header>
 
-  <main class="main-content">
+  <main id="main" class="main-content" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <a class="breadcrumbs__link" href="catalog.html">Каталог</a>
       <span class="breadcrumbs__current">Костюм скелета</span>
     </nav>
-    
-    <!-- Карточка развернутого товара -->
+
     <section class="section section--card">
       <div class="product-detail">
 
-        <div class="product-detail__image-wrapper">     
-<img
-  class="product-detail__image"
-  src="images/skeleton.png"
-  srcset="images/skeleton-480.png 480w, images/skeleton-960.png 960w, images/skeleton.png 1024w"
-  sizes="(max-width: 1023px) 100vw, 400px"
-  alt="Костюм скелета"
-  width="1024"
-  height="1536">
+        <div class="product-detail__image-wrapper">
+          <picture>
+            <source type="image/webp" srcset="images/skeleton-480.webp 480w, images/skeleton-960.webp 960w, images/skeleton.webp 1024w" sizes="(max-width: 1023px) 100vw, 400px">
+            <img
+              class="product-detail__image"
+              src="images/skeleton.png"
+              srcset="images/skeleton-480.png 480w, images/skeleton-960.png 960w, images/skeleton.png 1024w"
+              sizes="(max-width: 1023px) 100vw, 400px"
+              alt="Костюм скелета"
+              width="1024"
+              height="1536">
+          </picture>
         </div>
 
         <div class="product-detail__info">
@@ -63,37 +67,43 @@
           <a class="button button--primary product-detail__button" href="order.html">Заказать</a>
         </div>
       </div>
+
+      <dl class="product-specs-mobile" aria-label="Характеристики костюма скелета">
+        <div class="product-specs-mobile__item"><dt>Материал</dt><dd>Высококачественный эластан, полиэстер</dd></div>
+        <div class="product-specs-mobile__item"><dt>Особенности эффекта</dt><dd>Люминесцентное неоновое свечение в темноте</dd></div>
+        <div class="product-specs-mobile__item"><dt>Комплектация</dt><dd>Комбинезон, маска-балаклава, перчатки</dd></div>
+        <div class="product-specs-mobile__item"><dt>Рекомендации по уходу</dt><dd>Ручная стирка в прохладной воде</dd></div>
+      </dl>
       <div class="table-wrapper">
         <table class="product-table">
           <caption class="catalog-products__title catalog-products__title--hidden">Характеристики Костюма Скелета</caption>
           <thead>
             <tr class="product-table__row">
-              <th class="product-table__th">Параметр</th>
-              <th class="product-table__th">Значение</th>
+              <th class="product-table__th" scope="col">Параметр</th>
+              <th class="product-table__th" scope="col">Значение</th>
             </tr>
           </thead>
           <tbody>
             <tr class="product-table__row">
-              <td class="product-table__td product-table__property">Материал корпуса</td>
+              <th class="product-table__td product-table__property" scope="row">Материал</th>
               <td class="product-table__td">Высококачественный эластан, полиэстер</td>
             </tr>
             <tr class="product-table__row">
-              <td class="product-table__td product-table__property">Особенности эффекта</td>
+              <th class="product-table__td product-table__property" scope="row">Особенности эффекта</th>
               <td class="product-table__td">Люминесцентное неоновое свечение в темноте</td>
             </tr>
             <tr class="product-table__row">
-              <td class="product-table__td product-table__property">Комплектация</td>
+              <th class="product-table__td product-table__property" scope="row">Комплектация</th>
               <td class="product-table__td">Комбинезон, маска-балаклава, перчатки</td>
             </tr>
             <tr class="product-table__row">
-              <td class="product-table__td product-table__property">Рекомендации по уходу</td>
+              <th class="product-table__td product-table__property" scope="row">Рекомендации по уходу</th>
               <td class="product-table__td">Ручная стирка в прохладной воде</td>
             </tr>
           </tbody>
         </table>
       </div>
-      </section>
-    </div>
+    </section>
   </main>
 
   <footer class="site-footer">

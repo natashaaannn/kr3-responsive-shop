@@ -10,31 +10,33 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">SpookyShop</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav__toggle" type="button" aria-controls="site-navigation" aria-expanded="false"><span aria-hidden="true">☰</span> <span>Меню</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="order.html">Заказ</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="order.html" aria-current="page">Заказ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="main-content">
+  <main id="main" class="main-content" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <span class="breadcrumbs__current">Оформление заказа</span>
     </nav>
-    
+
     <section class="section section--card section--centered-form">
       <h1 class="section__title section__title--centered">Оформление заказа</h1>
-      
+
       <form class="order-form" id="order-form" action="#" method="get" novalidate>
         <div class="order-form__field">
           <label class="order-form__label" for="order-select-product">Выберите товар</label>
@@ -97,8 +99,8 @@
         </button>
       </form>
 
-      <p class="success-message" id="success-message" hidden>
-        Форма успешно отправлена!
+      <p class="success-message" id="success-message" role="status" tabindex="-1" hidden>
+        Данные проверены. Это учебная форма, запрос не отправляется.
       </p>
     </section>
   </main>
