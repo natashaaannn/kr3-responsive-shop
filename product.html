@@ -10,6 +10,7 @@
   <meta property="og:image" content="https://natashaaannn.github.io/images/skeleton.png">
   <title>Костюм скелета — SpookyShop</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -40,8 +41,15 @@
     <section class="section section--card">
       <div class="product-detail">
 
-        <div class="product-detail__image-wrapper">
-          <img class="product-detail__image" src="images/skeleton.png" alt="Костюм скелета">
+        <div class="product-detail__image-wrapper">     
+<img
+  class="product-detail__image"
+  src="images/skeleton.png"
+  srcset="images/skeleton-480.png 480w, images/skeleton-960.png 960w, images/skeleton.png 1024w"
+  sizes="(max-width: 1023px) 100vw, 400px"
+  alt="Костюм скелета"
+  width="1024"
+  height="1536">
         </div>
 
         <div class="product-detail__info">
@@ -55,7 +63,7 @@
           <a class="button button--primary product-detail__button" href="order.html">Заказать</a>
         </div>
       </div>
-
+      <div class="table-wrapper">
         <table class="product-table">
           <caption class="catalog-products__title catalog-products__title--hidden">Характеристики Костюма Скелета</caption>
           <thead>
@@ -83,6 +91,7 @@
             </tr>
           </tbody>
         </table>
+      </div>
       </section>
     </div>
   </main>
