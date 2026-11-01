@@ -7,7 +7,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Каталог — SpookyShop">
   <meta property="og:description" content="Найдите идеальные товары для незабываемой мистической ночи.">
-  <meta property="og:image" content="https://natashaaannn.github.io/images/skeleton.png">
+  <meta property="og:image" content="https://natashaaannn.github.io/kr3-responsive-shop/images/skeleton.png">
   <title>Каталог — SpookyShop</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
@@ -22,13 +22,12 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">SpookyShop</a>
-      <nav class="site-nav" aria-label="Основная навигация">
+      <button class="site-nav__toggle" type="button" aria-controls="site-navigation" aria-expanded="false"><span aria-hidden="true">☰</span> <span>Меню</span></button>
+      <nav class="site-nav" id="site-navigation" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
-   href="catalog.html"
-   aria-current="page">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заказ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
@@ -41,19 +40,21 @@
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <span class="breadcrumbs__current">Каталог</span>
     </nav>
-    
+
     <section class="section section--card">
       <h1 class="section__title">Каталог товаров</h1>
       <p class="section__text section__text--inline">
         Добро пожаловать в нашу полную жуткую коллекцию! Здесь собраны лучшие костюмы, декорации ручной работы и сладости для идеальной хэллоуинской вечеринки.
       </p>
     </section>
-    
+
     <div class="catalog-layout">
-      <aside class="catalog-filters">
+      <details class="catalog-filter-disclosure" open>
+        <summary class="catalog-filter-summary">Фильтры и параметры поиска</summary>
+        <aside class="catalog-filters">
         <h2 class="catalog-filters__title">Фильтры</h2>
-        <form class="filters-form" action="#" method="get">
-          
+        <form class="filters-form" id="catalog-filter-form" action="#" method="get">
+
           <fieldset class="filters-form__fieldset">
             <legend class="filters-form__legend">Тип товара</legend>
             <label class="filters-form__label"><input type="checkbox" name="type" value="costumes"> Костюмы и маски</label>
@@ -68,317 +69,377 @@
             <label class="filters-form__label"><input type="checkbox" name="status" value="new"> Новинки</label>
             <label class="filters-form__label"><input type="checkbox" name="status" value="discount"> Со скидкой</label>
           </fieldset>
-          
+
           <fieldset class="filters-form__fieldset">
             <legend class="filters-form__legend">Цена (руб.)</legend>
             <label class="filters-form__label" for="price-from">От</label>
-            <input class="filters-form__input" id="price-from" type="number" placeholder="0">
+            <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" step="1" placeholder="0">
             <label class="filters-form__label filters-form__label--spaced" for="price-to">До</label>
-            <input class="filters-form__input" id="price-to" type="number" placeholder="5000">
+            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" step="1" placeholder="5000">
           </fieldset>
-          <button class="button button--primary" type="submit">Применить</button>
+          <div class="filters-form__actions">
+            <button class="button button--primary" type="submit">Применить</button>
+            <button class="button button--secondary" type="reset">Сбросить</button>
+          </div>
         </form>
       </aside>
-      
+      </details>
+
       <section class="catalog-products">
         <h2 class="catalog-products__title">Товары</h2>
+        <p class="catalog-products__count" id="catalog-results-count" role="status" aria-live="polite">Показано товаров: 18</p>
+        <p class="catalog-products__empty" id="catalog-empty" hidden>По выбранным параметрам товаров нет. Сбросьте фильтры или измените условия.</p>
         <div class="products-grid">
-          
-          <!-- 1. Маска Крика -->
-          <article class="product-card">
+
+          <article class="product-card" data-category="costumes">
             <span class="product-card__badge product-card__badge--top">ТОП</span>
             <span class="product-card__category">Маски</span>
-            <img
-              class="product-card__image"
-              src="images/scream.png"
-              srcset="images/scream-240.png 240w, images/scream.png 400w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Маска Крика"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/scream-240.webp 240w, images/scream.webp 400w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/scream.png"
+                width="400" height="400"
+                srcset="images/scream-240.png 240w, images/scream.png 400w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Маска Крика"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Хоррор-маска Ghostface</h3>
             <p class="product-card__description">Знаменитая качественная латексная маска маньяка Крик с реалистичным тканевым капюшоном черного цвета.</p>
             <p class="product-card__price">Цена: 990 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 2. Костюм скелета -->
-          <article class="product-card">
+          <article class="product-card" data-category="costumes">
             <span class="product-card__badge product-card__badge--hit">ХИТ</span>
             <span class="product-card__category">Костюмы</span>
-            <img
-              class="product-card__image"
-              src="images/skeleton.png"
-              srcset="images/skeleton-480.png 480w, images/skeleton-960.png 960w, images/skeleton.png 1024w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Костюм скелета"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/skeleton-480.webp 480w, images/skeleton-960.webp 960w, images/skeleton.webp 1024w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/skeleton.png"
+                width="1024" height="1536"
+                srcset="images/skeleton-480.png 480w, images/skeleton-960.png 960w, images/skeleton.png 1024w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Костюм скелета"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Костюм скелета</h3>
             <p class="product-card__description">Премиальный облегающий комбинезон со зловещим анатомическим принтом костей, который ярко светится в полной темноте.</p>
             <p class="product-card__price">Цена: 2 990 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 3. Набор шариков Хеллоуин -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__badge product-card__badge--hit">ХИТ</span>
             <span class="product-card__category">Декор</span>
-            <img
-              class="product-card__image"
-              src="images/balloon.png"
-              srcset="images/balloon-480.png 480w, images/balloon-960.png 960w, images/balloon.png 1224w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Набор шариков Хеллоуин"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/balloon-480.webp 480w, images/balloon-960.webp 960w, images/balloon.webp 1224w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/balloon.png"
+                width="1224" height="1285"
+                srcset="images/balloon-480.png 480w, images/balloon-960.png 960w, images/balloon.png 1224w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Набор шариков Хеллоуин"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Набор шариков Хеллоуин</h3>
             <p class="product-card__description">Набор из 15 прочных латексных шаров оранжевого и черного цвета с принтами летучих мышей и тыкв.</p>
             <p class="product-card__price">Цена: 590 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 4. Костюм привидения -->
-          <article class="product-card">
+          <article class="product-card" data-category="costumes">
             <span class="product-card__category">Костюмы</span>
-            <img
-              class="product-card__image"
-              src="images/ghost.png"
-              srcset="images/ghost-480.png 480w, images/ghost-960.png 960w, images/ghost.png 1024w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Костюм привидения"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/ghost-480.webp 480w, images/ghost-960.webp 960w, images/ghost.webp 1024w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/ghost.png"
+                width="1024" height="1536"
+                srcset="images/ghost-480.png 480w, images/ghost-960.png 960w, images/ghost.png 1024w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Костюм привидения"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Костюм привидения</h3>
             <p class="product-card__description">Легкая полупрозрачная струящаяся мантия белого цвета со скрывающей лицо маской-вуалью для создания мистического образа.</p>
             <p class="product-card__price">Цена: 1 890 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 5. Ведьмина метла -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__badge product-card__badge--new">NEW</span>
             <span class="product-card__category">Аксессуары</span>
-            <img
-              class="product-card__image"
-              src="images/broom.png"
-              srcset="images/broom-480.png 480w, images/broom-960.png 960w, images/broom.png 1024w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Ведьмина метла"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/broom-480.webp 480w, images/broom-960.webp 960w, images/broom.webp 1024w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/broom.png"
+                width="1024" height="1536"
+                srcset="images/broom-480.png 480w, images/broom-960.png 960w, images/broom.png 1024w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Ведьмина метла"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Ведьмина метла</h3>
             <p class="product-card__description">Декоративная метла из натуральных прутьев с атласной фиолетовой лентой. Идеальное дополнение к костюму.</p>
             <p class="product-card__price">Цена: 1 290 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
-          
-          <!-- 6. Костюм вампира -->
-          <article class="product-card">
+
+          <article class="product-card" data-category="costumes">
             <span class="product-card__badge product-card__badge--top">ТОП</span>
             <span class="product-card__category">Костюмы</span>
-            <img
-              class="product-card__image"
-              src="images/vampire.png"
-              srcset="images/vampire-480.png 480w, images/vampire-960.png 960w, images/vampire.png 1024w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Костюм вампира"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/vampire-480.webp 480w, images/vampire-960.webp 960w, images/vampire.webp 1024w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/vampire.png"
+                width="1024" height="1536"
+                srcset="images/vampire-480.png 480w, images/vampire-960.png 960w, images/vampire.png 1024w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Костюм вампира"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Костюм вампира</h3>
             <p class="product-card__description">Роскошный готический комплект из длинного атласного плаща с багровой подкладкой, жилета и классического высокого воротника.</p>
             <p class="product-card__price">Цена: 3 890 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 7. Скатерть тематическая -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__category">Декор</span>
-            <img
-              class="product-card__image"
-              src="images/tablecloth.png"
-              srcset="images/tablecloth-480.png 480w, images/tablecloth-960.png 960w, images/tablecloth.png 1374w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Скатерть тематическая"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/tablecloth-480.webp 480w, images/tablecloth-960.webp 960w, images/tablecloth.webp 1374w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/tablecloth.png"
+                width="1374" height="1145"
+                srcset="images/tablecloth-480.png 480w, images/tablecloth-960.png 960w, images/tablecloth.png 1374w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Скатерть тематическая"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Скатерть тематическая</h3>
             <p class="product-card__description">Водонепроницаемая праздничная скатерть с готическим узором из паутины и заброшенных замков для стола.</p>
             <p class="product-card__price">Цена: 790 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 8. Шляпа ведьмы -->
-          <article class="product-card">
+          <article class="product-card" data-category="costumes">
             <span class="product-card__badge product-card__badge--discount">-10%</span>
             <span class="product-card__category">Аксессуары</span>
-            <img
-              class="product-card__image"
-              src="images/witch.png"
-              srcset="images/witch-480.png 480w, images/witch-960.png 960w, images/witch.png 1254w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Шляпа ведьмы"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/witch-480.webp 480w, images/witch-960.webp 960w, images/witch.webp 1254w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/witch.png"
+                width="1254" height="1254"
+                srcset="images/witch-480.png 480w, images/witch-960.png 960w, images/witch.png 1254w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Шляпа ведьмы"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Шляпа ведьмы</h3>
             <p class="product-card__description">Остроконечная черная фетровая шляпа с вуалью из кружева и искусственными розами.</p>
             <p class="product-card__price">Цена: 1 190 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 9. Сумочки для конфет -->
-          <article class="product-card">
+          <article class="product-card" data-category="sweets">
             <span class="product-card__badge product-card__badge--discount">-10%</span>
             <span class="product-card__category">Аксессуары</span>
-            <img
-              class="product-card__image"
-              src="images/bag.png"
-              srcset="images/bag-480.png 480w, images/bag-960.png 960w, images/bag.png 1440w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Сумочки для конфет"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/bag-480.webp 480w, images/bag-960.webp 960w, images/bag.webp 1440w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/bag.png"
+                width="1440" height="1920"
+                srcset="images/bag-480.png 480w, images/bag-960.png 960w, images/bag.png 1440w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Сумочки для конфет"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Сумочки для конфет (3 шт)</h3>
             <p class="product-card__description">Фетровые сумочки-мешки с удобной ручкой в форме тыкв для сбора сладостей «Кошелек или жизнь».</p>
             <p class="product-card__price">Цена: 450 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 10. Тыква Джек LED -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__badge product-card__badge--new">NEW</span>
             <span class="product-card__category">Декор</span>
-            <img
-              class="product-card__image"
-              src="images/pumpkin.png"
-              srcset="images/pumpkin-480.png 480w, images/pumpkin-960.png 960w, images/pumpkin.png 1254w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Тыква Джек"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/pumpkin-480.webp 480w, images/pumpkin-960.webp 960w, images/pumpkin.webp 1254w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/pumpkin.png"
+                width="1254" height="1254"
+                srcset="images/pumpkin-480.png 480w, images/pumpkin-960.png 960w, images/pumpkin.png 1254w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Тыква Джек"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Тыква Джек LED</h3>
             <p class="product-card__description">Большая керамическая тыква-светильник с вырезанной зловещей ухмылкой и мерцающим огнем.</p>
             <p class="product-card__price">Цена: 1 590 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 11. Игрушка мягкая паук -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__category">Бутафория</span>
-            <img
-              class="product-card__image"
-              src="images/spider.png"
-              srcset="images/spider-320.png 320w, images/spider-640.png 640w, images/spider.png 800w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Игрушка мягкая паук"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/spider-320.webp 320w, images/spider-640.webp 640w, images/spider.webp 800w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/spider.png"
+                width="800" height="800"
+                srcset="images/spider-320.png 320w, images/spider-640.png 640w, images/spider.png 800w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Игрушка мягкая паук"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Игрушка мягкая паук</h3>
             <p class="product-card__description">Большой мохнатый паук с гибкими лапками, которые можно гнуть в любую сторону для жутких пранков.</p>
             <p class="product-card__price">Цена: 890 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 12. Тюбик искусственной крови -->
-          <article class="product-card">
+          <article class="product-card" data-category="makeup">
             <span class="product-card__category">Грим</span>
-            <img
-              class="product-card__image"
-              src="images/blood.png"
-              srcset="images/blood-480.png 480w, images/blood-960.png 960w, images/blood.png 1254w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Искусственная кровь"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/blood-480.webp 480w, images/blood-960.webp 960w, images/blood.webp 1254w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/blood.png"
+                width="1254" height="1254"
+                srcset="images/blood-480.png 480w, images/blood-960.png 960w, images/blood.png 1254w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Искусственная кровь"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Тюбик искусственной крови</h3>
             <p class="product-card__description">Густая реалистичная театральная кровь для создания спецэффектов и грима. Смывается водой.</p>
             <p class="product-card__price">Цена: 490 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 13. Набор леденцов -->
-          <article class="product-card">
+          <article class="product-card" data-category="sweets">
             <span class="product-card__badge product-card__badge--hit">ХИТ</span>
             <span class="product-card__category">Сладости</span>
-            <img
-              class="product-card__image"
-              src="images/candy.png"
-              srcset="images/candy-480.png 480w, images/candy-960.png 960w, images/candy.png 1024w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Набор леденцов"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/candy-480.webp 480w, images/candy-960.webp 960w, images/candy.webp 1024w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/candy.png"
+                width="1024" height="1024"
+                srcset="images/candy-480.png 480w, images/candy-960.png 960w, images/candy.png 1024w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Набор леденцов"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Набор леденцов Spooky Candy</h3>
             <p class="product-card__description">Тематическое trio фигурных леденцов ручной работы на палочке: белая косточка, черный паук и оранжевая тыква.</p>
             <p class="product-card__price">Цена: 350 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 14. Жуткие свечи-призраки -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__badge product-card__badge--discount">-20%</span>
             <span class="product-card__category">Декор</span>
-            <img
-              class="product-card__image"
-              src="images/candle.png"
-              srcset="images/candle-480.png 480w, images/candle-960.png 960w, images/candle.png 1254w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Свечи-призраки"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/candle-480.webp 480w, images/candle-960.webp 960w, images/candle.webp 1254w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/candle.png"
+                width="1254" height="1254"
+                srcset="images/candle-480.png 480w, images/candle-960.png 960w, images/candle.png 1254w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Свечи-призраки"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Жуткие свечи-призраки</h3>
             <p class="product-card__description">Набор из 3 соевых ароматических свечей, выполненных в форме парящих привидений.</p>
             <p class="product-card__price">Цена: 1 290 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 15. Клыки вампира -->
-          <article class="product-card">
+          <article class="product-card" data-category="makeup">
             <span class="product-card__category">Грим</span>
-            <img
-              class="product-card__image"
-              src="images/fangs.png"
-              srcset="images/fangs-320.png 320w, images/fangs.png 640w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Клыки вампира"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/fangs-320.webp 320w, images/fangs.webp 640w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/fangs.png"
+                width="640" height="640"
+                srcset="images/fangs-320.png 320w, images/fangs.png 640w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Клыки вампира"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Клыки вампира с термоклеем</h3>
             <p class="product-card__description">Реалистичные полимерные клыки. В комплекте идет безопасный гипоаллергенный клей для быстрой фиксации.</p>
             <p class="product-card__price">Цена: 490 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 16. ...Гирлянда Летучие Мыши -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__badge product-card__badge--new">NEW</span>
             <span class="product-card__category">Освещение</span>
-            <img
-              class="product-card__image"
-              src="images/garland.png"
-              srcset="images/garland-480.png 480w, images/garland-960.png 960w, images/garland.png 1254w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Гирлянда Летучие Мыши"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/garland-480.webp 480w, images/garland-960.webp 960w, images/garland.webp 1254w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/garland.png"
+                width="1254" height="1254"
+                srcset="images/garland-480.png 480w, images/garland-960.png 960w, images/garland.png 1254w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Гирлянда Летучие Мыши"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Гирлянда Летучие Мыши</h3>
             <p class="product-card__description">3-метровая неоновая гирлянда с 20 светящимися ярко-фиолетовыми летучими мышами.</p>
             <p class="product-card__price">Цена: 1 390 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 17. Букет черных готических роз -->
-          <article class="product-card">
+          <article class="product-card" data-category="decor">
             <span class="product-card__badge product-card__badge--discount">-15%</span>
             <span class="product-card__category">Декор</span>
-            <img
-              class="product-card__image"
-              src="images/roses.png"
-              srcset="images/roses-480.png 480w, images/roses-960.png 960w, images/roses.png 1000w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Черные розы"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/roses-480.webp 480w, images/roses-960.webp 960w, images/roses.webp 1000w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/roses.png"
+                width="1000" height="1000"
+                srcset="images/roses-480.png 480w, images/roses-960.png 960w, images/roses.png 1000w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Черные розы"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Букет черных готических роз</h3>
             <p class="product-card__description">Искусственный изящный букет из 7 черных бархатных роз для украшения праздничного стола или фотозоны.</p>
             <p class="product-card__price">Цена: 950 руб.</p>
             <a class="button button--primary product-card__button" href="product.html">Подробнее</a>
           </article>
 
-          <!-- 18. Настольная игра Хоррор -->
-          <article class="product-card">
+          <article class="product-card" data-category="sweets">
             <span class="product-card__badge product-card__badge--discount">-15%</span>
             <span class="product-card__category">Игры</span>
-            <img
-              class="product-card__image"
-              src="images/game.png"
-              srcset="images/game-480.png 480w, images/game-960.png 960w, images/game.png 1024w"
-              sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
-              alt="Настольная игра Хоррор"
-              loading="lazy">
+            <picture>
+              <source type="image/webp" srcset="images/game-480.webp 480w, images/game-960.webp 960w, images/game.webp 1024w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw">
+              <img
+                class="product-card__image"
+                src="images/game.png"
+                width="1024" height="1536"
+                srcset="images/game-480.png 480w, images/game-960.png 960w, images/game.png 1024w"
+                sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+                alt="Настольная игра Хоррор"
+                loading="lazy">
+            </picture>
             <h3 class="product-card__title">Настольная игра Хоррор</h3>
             <p class="product-card__description">Атмосферная настольная детективная игра для вечеринки компании от 3 до 8 человек.</p>
             <p class="product-card__price">Цена: 2 490 руб.</p>
