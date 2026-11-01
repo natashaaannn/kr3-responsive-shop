@@ -1,4 +1,3 @@
-
 # SpookyShop — Контрольная работа №3
 
 ## Описание проекта
@@ -232,4 +231,8 @@ kr3-responsive-shop/
 ## Репозиторий
 
 https://github.com/natashaaannn/kr3-responsive-shop
+
+## Сайт
+
+https://natashaaannn.github.io/kr3-responsive-shop/
 
