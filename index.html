@@ -15,12 +15,18 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">    
+    Перейти к основному содержимому
+  </a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">SpookyShop</a>
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
+   href="index.html"
+   aria-current="page">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="catalog.html">Каталог</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заказ</a></li>
@@ -30,7 +36,7 @@
     </div>
   </header>
 
-  <main class="main-content">
+ <main id="main" class="main-content" tabindex="-1">
     <section class="hero">
       <h1 class="hero__title">Добро пожаловать в SpookyShop!</h1>
       <p class="hero__text">

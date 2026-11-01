@@ -62,3 +62,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Добавление заголовка для карты Яндекса
+const mapContainer = document.querySelector('.map-container');
+
+if (mapContainer) {
+    const addMapTitle = () => {
+        const mapFrame = mapContainer.querySelector('iframe');
+
+        if (mapFrame) {
+            mapFrame.setAttribute(
+                'title',
+                'Карта расположения магазина SpookyShop'
+            );
+            return true;
+        }
+
+        return false;
+    };
+
+    if (!addMapTitle()) {
+        const mapObserver = new MutationObserver(() => {
+            if (addMapTitle()) {
+                mapObserver.disconnect();
+            }
+        });
+
+        mapObserver.observe(mapContainer, {
+            childList: true,
+            subtree: true
+        });
+    }
+}

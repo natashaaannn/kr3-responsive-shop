@@ -417,3 +417,76 @@ video {
     width: auto;
   }
 }
+
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 9999;
+
+  padding: 12px 16px;
+  border-radius: 6px;
+
+  background-color: #111111;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 16px;
+}
+
+/* Видимый фокус при управлении клавиатурой */
+:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #111111;
+}
+
+/* Дополнительное выделение полей форм */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #ff8c00;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 5px #111111;
+}
+
+/* Поддержка пользователей с уменьшенной анимацией */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Активный пункт навигации */
+.site-nav__link--active {
+  color: #111111;
+}
+
+/* Основные оранжевые кнопки */
+.button--primary {
+  color: #111111;
+}
+
+
+/* Практическая №13 — контрастность значков */
+
+/* Значок ХИТ */
+span.product-card__badge.product-card__badge--hit {
+  color: #111111 !important;
+}
+
+/* Значки скидок */
+span.product-card__badge.product-card__badge--discount {
+  color: #111111 !important;
+}
