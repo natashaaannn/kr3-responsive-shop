@@ -15,6 +15,10 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main">
+    Перейти к основному содержимому
+  </a>
+
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">SpookyShop</a>
@@ -22,7 +26,9 @@
         <ul class="site-nav__list">
           <li class="site-nav__item"><a class="site-nav__link" href="index.html">Главная</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="index.html#popular">Популярные товары</a></li>
-          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li class="site-nav__item"><a class="site-nav__link site-nav__link--active"
+   href="catalog.html"
+   aria-current="page">Каталог</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="order.html">Заказ</a></li>
           <li class="site-nav__item"><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
@@ -30,7 +36,7 @@
     </div>
   </header>
 
-  <main class="main-content">
+  <main id="main" class="main-content" tabindex="-1">
     <nav class="breadcrumbs" aria-label="Хлебные крошки">
       <a class="breadcrumbs__link" href="index.html">Главная</a>
       <span class="breadcrumbs__current">Каталог</span>
