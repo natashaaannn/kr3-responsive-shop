@@ -10,6 +10,7 @@
   <meta property="og:image" content="https://natashaaannn.github.io/images/skeleton.png">
   <title>SpookyShop</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
@@ -57,7 +58,13 @@
         <article class="product-card">
           <span class="product-card__badge product-card__badge--hit">ХИТ</span>
           <span class="product-card__category">Костюмы</span>
-          <img class="product-card__image" src="images/skeleton.png" alt="Костюм скелета">
+          <img
+            class="product-card__image"
+            src="images/skeleton.png"
+            srcset="images/skeleton-480.png 480w, images/skeleton-960.png 960w, images/skeleton.png 1024w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Костюм скелета"
+            loading="lazy">
           <h3 class="product-card__title">Костюм скелета</h3>
           <p class="product-card__description">Премиальный облегающий комбинезон со зловещим анатомическим принтом костей, который ярко светится в полной темноте.</p>
           <p class="product-card__price">Цена: 2 990 руб.</p>
@@ -67,7 +74,13 @@
         <!-- 2. Костюм привидения -->
         <article class="product-card">
           <span class="product-card__category">Костюмы</span>
-          <img class="product-card__image" src="images/ghost.png" alt="Костюм привидения">
+          <img
+            class="product-card__image"
+            src="images/ghost.png"
+            srcset="images/ghost-480.png 480w, images/ghost-960.png 960w, images/ghost.png 1024w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Костюм привидения"
+            loading="lazy">
           <h3 class="product-card__title">Костюм привидения</h3>
           <p class="product-card__description">Легкая полупрозрачная струящаяся мантия белого цвета со скрывающей лицо маской-вуалью для создания мистического образа.</p>
           <p class="product-card__price">Цена: 1 890 руб.</p>
@@ -78,7 +91,13 @@
         <article class="product-card">
           <span class="product-card__badge product-card__badge--top">ТОП</span>
           <span class="product-card__category">Костюмы</span>
-          <img class="product-card__image" src="images/vampire.png" alt="Костюм вампира">
+          <img
+            class="product-card__image"
+            src="images/vampire.png"
+            srcset="images/vampire-480.png 480w, images/vampire-960.png 960w, images/vampire.png 1024w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Костюм вампира"
+            loading="lazy">
           <h3 class="product-card__title">Костюм вампира</h3>
           <p class="product-card__description">Роскошный готический комплект из длинного атласного плаща с багровой подкладкой, жилета и классического высокого воротника.</p>
           <p class="product-card__price">Цена: 3 890 руб.</p>
@@ -89,7 +108,13 @@
         <article class="product-card">
           <span class="product-card__badge product-card__badge--discount">-10%</span>
           <span class="product-card__category">Аксессуары</span>
-          <img class="product-card__image" src="images/witch.png" alt="Шляпа ведьмы">
+          <img
+            class="product-card__image"
+            src="images/witch.png"
+            srcset="images/witch-480.png 480w, images/witch-960.png 960w, images/witch.png 1254w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Шляпа ведьмы"
+            loading="lazy">
           <h3 class="product-card__title">Шляпа ведьмы</h3>
           <p class="product-card__description">Остроконечная черная фетровая шляпа с вуалью из кружева и искусственными розами.</p>
           <p class="product-card__price">Цена: 990 руб.</p>
@@ -100,7 +125,13 @@
         <article class="product-card">
           <span class="product-card__badge product-card__badge--new">NEW</span>
           <span class="product-card__category">Декор</span>
-          <img class="product-card__image" src="images/pumpkin.png" alt="Тыква Джек">
+          <img
+            class="product-card__image"
+            src="images/pumpkin.png"
+            srcset="images/pumpkin-480.png 480w, images/pumpkin-960.png 960w, images/pumpkin.png 1254w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Тыква Джек"
+            loading="lazy">
           <h3 class="product-card__title">Тыква Джек LED</h3>
           <p class="product-card__description">Большая керамическая тыква-светильник с вырезанной зловещей ухмылкой и мерцающим огнем.</p>
           <p class="product-card__price">Цена: 1 590 руб.</p>
@@ -110,7 +141,13 @@
         <!-- 6. Тюбик искусственной крови -->
         <article class="product-card">
           <span class="product-card__category">Грим</span>
-          <img class="product-card__image" src="images/blood.png" alt="Искусственная кровь">
+          <img
+            class="product-card__image"
+            src="images/blood.png"
+            srcset="images/blood-480.png 480w, images/blood-960.png 960w, images/blood.png 1254w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Искусственная кровь"
+            loading="lazy">
           <h3 class="product-card__title">Тюбик искусственной крови</h3>
           <p class="product-card__description">Густая реалистичная театральная кровь для создания спецэффектов и грима. Смывается водой.</p>
           <p class="product-card__price">Цена: 490 руб.</p>
@@ -121,7 +158,13 @@
         <article class="product-card">
           <span class="product-card__badge product-card__badge--discount">-20%</span>
           <span class="product-card__category">Декор</span>
-          <img class="product-card__image" src="images/candle.png" alt="Свечи-призраки">
+          <img
+            class="product-card__image"
+            src="images/candle.png"
+            srcset="images/candle-480.png 480w, images/candle-960.png 960w, images/candle.png 1254w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Свечи-призраки"
+            loading="lazy">
           <h3 class="product-card__title">Жуткие свечи-призраки</h3>
           <p class="product-card__description">Набор из 4 соевых ароматических свечей, выполненных в форме парящих привидений.</p>
           <p class="product-card__price">Цена: 1 290 руб.</p>
@@ -132,7 +175,13 @@
         <article class="product-card">
           <span class="product-card__badge product-card__badge--new">NEW</span>
           <span class="product-card__category">Освещение</span>
-          <img class="product-card__image" src="images/garland.png" alt="Гирлянда Летучие Мыши">
+          <img
+            class="product-card__image"
+            src="images/garland.png"
+            srcset="images/garland-480.png 480w, images/garland-960.png 960w, images/garland.png 1254w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Гирлянда Летучие Мыши"
+            loading="lazy">
           <h3 class="product-card__title">Гирлянда Летучие Мыши</h3>
           <p class="product-card__description">3-метровая неоновая гирлянда с 20 светящимися ярко-фиолетовыми летучими мышами.</p>
           <p class="product-card__price">Цена: 1 390 руб.</p>
@@ -143,7 +192,13 @@
         <article class="product-card">
           <span class="product-card__badge product-card__badge--discount">-15%</span>
           <span class="product-card__category">Игры</span>
-          <img class="product-card__image" src="images/game.png" alt="Настольная игра Хоррор">
+          <img
+            class="product-card__image"
+            src="images/game.png"
+            srcset="images/game-480.png 480w, images/game-960.png 960w, images/game.png 1024w"
+            sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
+            alt="Настольная игра Хоррор"
+            loading="lazy">
           <h3 class="product-card__title">Настольная игра Хоррор</h3>
           <p class="product-card__description">Атмосферная настольная детективная игра для вечеринки.</p>
           <p class="product-card__price">Цена: 2 490 руб.</p>
