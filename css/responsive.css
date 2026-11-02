@@ -424,8 +424,16 @@ textarea:focus-visible {
   min-height: 44px;
 }
 .catalog-products__count {
-  margin: 0 0 8px;
-  color: #ffdbb5;
+    align-self: flex-start;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 8px;
+    padding: 8px 12px;
+    border: 1px solid #ff6a00;
+    border-radius: 6px;
+    background-color: #222222;
+    color: #ffdbb5;
+    font-weight: 700;
 }
 .catalog-products__empty {
   padding: 18px;
