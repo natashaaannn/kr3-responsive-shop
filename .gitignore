@@ -1,0 +1,15 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+__MACOSX/
+._*
+
+.vscode/
+.idea/
+
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
